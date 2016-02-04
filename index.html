@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="public/node_modules/angular/angular.js"></script>
+        <title>First Angular Application</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="public/css/bootstrap.css" rel="stylesheet"/>
+        <link href="public/css/app.css" rel="stylesheet"/>
+        
+        <script>
+            var App = {
+                url: "http://localhost:8383/ng-test-1/public/",
+                base_url:"http://localhost:8383/ng-test-1/",
+            };
+        </script>
+    </head>
+    
+    <body ng-app="app">
+
+        <div class="jumbotron">
+            <div class="container">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
+        
         <script src="public/js/plugins/jquery-1.12.0.min.js"></script>
         <script src="public/js/plugins/bootstrap.js"></script>
-        <link href="public/css/bootstrap.css"/>
-        <link href="public/css/bootstrap.css">
-        <link href="public/css/bootstrap.css">
-        <title>First Angular Application</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body ng-app="test1">
-        <div ng-view></div>
+        
+        <!--plugins-->
+        <script src="public/node_modules/angular/angular.js"></script>
+        <script src="public/node_modules/angular-route/angular-route.js"></script>
+        <script src="public/node_modules/angular-cookies/angular-cookies.js"></script>
+        
+        <!--custom js-->
+        <script src="public/js/app.js"></script>
+        
+        <!--services-->
+        <script src="public/js/services/authentication.service.js"></script>
+        <script src="public/js/services/flash.service.js"></script>
+        <script src="public/js/services/user.service.local-storage.js"></script>
+        
+        
+        
+        <!--controllers-->
+        <script src="public/js/controllers/home.controller.js"></script>
+        <script src="public/js/controllers/login.controller.js"></script>
+        <script src="public/js/controllers/register.controller.js"></script>
+        
+        
     </body>
 </html>
